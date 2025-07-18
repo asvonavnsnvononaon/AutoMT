@@ -18,7 +18,7 @@ Autonomous Driving Systems (ADS) are safety-critical, where failures can be seve
 <img src="https://github.com/asvonavnsnvononaon/AutoMT/blob/main/Images/ASE_overall.jpg" width="60%"/>
 
 
-## ADS: Data and Training Pipeline
+## Data and Training Pipeline
 ## 1.1 Data Prepare 
 This project is based on two well-known autonomous driving datasets: A2D2 and Udacity. To process the data, you first need to download these datasets:<br>
 Udacity: <a href='https://github.com/udacity/self-driving-car?tab=readme-ov-file' target='_blank'>Self-Driving Car</a><br>
