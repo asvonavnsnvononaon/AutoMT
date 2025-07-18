@@ -4,7 +4,7 @@
 
 - [Introduction](#Introduction)
 - [Data and Training Pipeline](#data-and-training-pipeline)
-- [M-Agent: Extracting MRs from Traffic Rules](#m-agent-extracting-mrs-from-traffic-rules)
+- [M-Agent: Extracting MRs from Traffic Rules](#m-agent-extracting-MRs-from-Rules)
 - [T-Agent and RAG-Based MR Matching](#t-agent-and-rag-based-mr-matching)
 - [Image Generation](#image-generation)
 - [Video Generation](#video-generation)
