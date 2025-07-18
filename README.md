@@ -10,8 +10,6 @@
 - [Video Generation](#video-generation)
 - [Validation and Violation Metrics](#validation-and-violation-metrics)
 
----
-
 
 
 ## Introduction
@@ -20,7 +18,7 @@ Autonomous Driving Systems (ADS) are safety-critical, where failures can be seve
 <img src="https://github.com/asvonavnsnvononaon/AutoMT/blob/main/Images/ASE_overall.jpg" width="60%"/>
 
 
-## ADS: Data & Training Pipeline
+## ADS: Data and Training Pipeline
 ## 1.1 Data Prepare 
 This project is based on two well-known autonomous driving datasets: A2D2 and Udacity. To process the data, you first need to download these datasets:<br>
 Udacity: <a href='https://github.com/udacity/self-driving-car?tab=readme-ov-file' target='_blank'>Self-Driving Car</a><br>
@@ -45,14 +43,14 @@ data_process.prepare_data(args) - Loads data into PyTorch structure<br>
 train_ADS.Train(args) - Trains the autonomous driving system<br>
 trian_ADS.Train(args,dataset,cuda) - Trains the autonomous driving system<br>
 <br>
-## M-Agent: Extracting MRs from Rules
+## M-Agent Extracting MRs from Rules
 To enable effective and automatic MR extraction, AUTOMT introduces the M-agent. As illustrated in Figure 2, we use the Gherkin syntax, pre-defined ontology and a LLM agent to define a LLM-based rule parser. A traffic rule is provided to multiple LLM-based rule parsers, which generate candidate MRs. These MRs are then validated using SelfCheckGPT to identify the optimal one. Then all optimal MRs are embedded into a RAG database.<br>
 <img src="https://github.com/asvonavnsnvononaon/AutoMT/blob/main/Images/Magent.jpg" width="60%"/><br>
 1. run <a href='https://github.com/asvonavnsnvononaon/AutoMT/blob/main/M_Agent/M-Agent.py' target='_blank'>M-Agent.py</a>.<br> - extraction MR from Traffic Rules
 2. run <a href='https://github.com/asvonavnsnvononaon/AutoMT/blob/main/M_Agent/SelfCheckGPT.py' target='_blank'>SelfCheckGPT.py</a>.<br> - Use selfcheckGPT select best MR
 3. run <a href='https://github.com/asvonavnsnvononaon/AutoMT/blob/main/M_Agent/Generate_RAG.py' target='_blank'>Generate_RAG.py</a>.<br> - Transform MR results become Rag database.
 
-## T-Agent + RAG: MR Matching
+## T-Agent and RAG based MR Matching
 
 ## 3.1 AutoMT
 1. run <a href='https://github.com/asvonavnsnvononaon/AutoMT/blob/main/T_Agent_RAG.py' target='_blank'>T_Agent_RAG.py</a>.<br> -  T-Agent and Rag
@@ -88,7 +86,7 @@ Pleas install this model at <a href='https://github.com/asvonavnsnvononaon/AutoM
 </div>
 <br>
 
-## Validation & Violation Metrics
+## Validation and Violation Metrics
 1. run <a href='https://github.com/asvonavnsnvononaon/AutoMT/blob/main/Compare_baseline.py' target='_blank'>Compare_baseline.py</a>.<br> -  Generation images Set control= 3 -> validation rate
 2. run <a href='https://github.com/asvonavnsnvononaon/AutoMT/blob/main/Compare_baseline.py' target='_blank'>Compare_baseline.py</a>.<br> -  Generation images Set control= 4 -> violation rate
 
