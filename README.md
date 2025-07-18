@@ -1,5 +1,19 @@
 # AutoMT: A Multi-Agent LLM Framework for Automated Metamorphic Testing of Autonomous Driving Systems
 
+## 📖 Table of Contents
+
+- [Introduction](#introduction)
+- [1. ADS: Data & Training Pipeline](#1-ads-data--training-pipeline)
+- [2. M-Agent: Extracting MRs from Rules](#2-m-agent-extracting-mrs-from-rules)
+- [3. T-Agent + RAG: MR Matching & Follow-Up Case Generation](#3-t-agent--rag-mr-matching--follow-up-case-generation)
+- [4. Image Generation](#4-image-generation)
+- [5. Video Generation](#5-video-generation)
+- [6. Validation & Violation Metrics](#6-validation--violation-metrics)
+
+---
+
+
+
 
 Autonomous Driving Systems (ADS) are safety-critical, where failures can be severe. While Metamorphic Testing (MT) is effective for fault detection in ADS, existing methods rely heavily on manual effort and lack automation. We present AutoMT, a multi-agent MT framework powered by Large Language Models (LLMs) that automates the extraction of Metamorphic Relations (MRs) from local traffic rules and the generation of valid follow-up test cases. AutoMT leverages LLMs to extract MRs from traffic rules in Gherkin syntax using a predefined ontology. A vision-language agent analyzes scenarios, and a search agent retrieves suitable MRs from a RAG-based database to generate follow-up cases via computer vision. Experiments show that AutoMT outperforms baselines by up to 28.26% in valid test generation and 20.55% in violation detection. AutoMT enables fully automated MT for ADS and integrates seamlessly with industrial pipelines using local rules and existing tests. Our code and supplementary material are available at <a href='https://anonymous.4open.science/r/AutoMT-9442' target='_blank'>AutoMT</a><br>.
 
