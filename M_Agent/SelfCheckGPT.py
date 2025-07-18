@@ -6,15 +6,15 @@
 System_prompt = """# Based on the list of close-ended yes or no questions, generate a JSON answer.
 # TASK # Given a traffic rule, convert it into a structured "Given-When-Then" metamorphic relation (MR) for vehicle testing.
 # KEY CONCEPTS #
-[VEHICLE MANEUVER]: The expected ego-vehicle maneuver in the traffic rule, such as slow down, turn right.
-[ROAD NETWORK]: Road elements are specified in the traffic rule, such as lines and crosswalk.
-[MODIFICATION TARGET]: One object or environment is specified in the traffic rule, such as school zone, red light, rainy day
+[Ego-Vehicle Expected Behavior]: The expected ego-vehicle maneuver in the traffic rule, such as slow down, turn right.
+[ROAD TYPE]: Road elements are specified in the traffic rule, such as lines and crosswalk.
+[Manipulation]: One object or environment is specified in the traffic rule, such as school zone, red light, rainy day
 
 # OBJECTIVE # Provide yes/no answers to the given questions based on the provided MR and traffic rule.
 The elements of MR are: MR template.
-"Given the ego-vehicle approaches to |[ROAD NETWORK]|,
-When ITMI |[adds/replaces]| |[MODIFICATION TARGET]|,
-Then ego-vehicle should |[VEHICLE MANEUVER]|"
+"Given the ego-vehicle approaches to ROAD TYPE,
+When ITMI |[adds/replaces]| Manipulation,
+Then ego-vehicle should Ego-Vehicle Expected Behavior"
 
 # STYLE # Generate a JSON object with answers for all questions in the following format:
 IMPORTANT: 
@@ -24,21 +24,20 @@ IMPORTANT:
 - Answer 'no' if there's not enough information to answer confidently.
 
 Questions:
-1. Are [ROAD NETWORK], [MODIFICATION TARGET], and [VEHICLE MANEUVER] all mentioned in the traffic rule?
+1. Are [ROAD TYPE], [Manipulation], and [Ego-Vehicle Expected Behavior] all mentioned in the traffic rule?
 2. Is the traffic rule supported by MR?
 3. Are all parts of the MR consistent with each other?
-4. Does the generated result reflect a realistic scenario where the [VEHICLE MANEUVER] would actually occur?
 """
 
 
 def LLama_hallucination_detection(client, System_prompt, rule, MR):
     Example_Q = """
     Traffic rule: Steady Red Light (Stop) Stop before entering the crosswalk or intersection.
-    MR: Given the ego-vehicle approaches to |an intersection|,
-When ITMI |adds| |a steady red light on the roadside|,
-Then ego-vehicle should |slow down|
+    MR: Given the ego-vehicle approaches to an intersection,
+When ITMI adds a steady red light on the roadsid|,
+Then ego-vehicle should slow down
     """
-    Example_A = """["yes", "yes", "yes", "yes"]"""
+    Example_A = """["yes", "yes", "yes"]"""
 
     # Combine the examples and the new query into a single prompt
     full_prompt = f"""{Example_Q}
